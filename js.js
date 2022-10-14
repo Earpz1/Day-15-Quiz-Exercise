@@ -35,11 +35,16 @@ const clearCanvas = function () {
 const showResults = function () {
   let questionContainer = document.querySelector('.question-container')
   let resultText = document.createElement('span')
+  let percent = (score / questionsAsked) * 100
+  percent = percent.toFixed(0)
   resultText.innerText =
-    'Congratulations, you have finished the quiz. You scored ' +
+    'You have finished the quiz. You scored ' +
     score +
     ' out of ' +
-    questionsAsked
+    questionsAsked +
+    ' (' +
+    percent +
+    '%)'
 
   questionContainer.appendChild(resultText)
 }
