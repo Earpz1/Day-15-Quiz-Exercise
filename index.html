@@ -15,7 +15,24 @@
       <br />
       <div class="question-container">
         <span id="introduction">You will be asked 5 questions which are randomly generated, multiple
-          choice questions. You will only be able to select 1 answer per question and at the end, you will see your results.</span><br><br>
+          choice questions. You will only be able to select 1 answer per question and at the end you will see your results.
+          <br><br>
+          How many questions? 
+        <select id="numberOfQuestions" onclick=setNumberOfQuestions()>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br><br>
+    Difficulty: <select id="difficulty" onclick=setDifficulty()>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+    </select>
+
+        </span><br><br>
           <a href="#" onclick="randomQuestion()" id="start">Start the Quiz</a>
           <a href="#" onclick="randomQuestion()" id="next" class="hide">Next Question</a>
         <br />

@@ -1,5 +1,8 @@
+let difficulty = 'easy'
+let numberOfQuestions = 1
 let questionsAsked = 0
 let score = 0
+let avoidDuplicates = []
 
 //Function to hide all the elements from the introduction. This function is called when the user starts the quiz
 
@@ -41,21 +44,46 @@ const showResults = function () {
   questionContainer.appendChild(resultText)
 }
 
+const setNumberOfQuestions = function () {
+  let select = document.getElementById('numberOfQuestions')
+  numberOfQuestions = select.options[select.selectedIndex].value
+  return numberOfQuestions
+}
+
+const setDifficulty = function () {
+  let select = document.getElementById('difficulty')
+  difficulty = select.options[select.selectedIndex].value
+
+  return difficulty
+}
+
 const randomQuestion = function () {
   hideStartButton()
   clearCanvas()
   hideNextButton()
 
-  if (questionsAsked === 5) {
+  if (questionsAsked === parseInt(numberOfQuestions)) {
     showResults()
     return
   }
 
-  questionsAsked++
-  console.log(questionsAsked)
-
   let randomNumber = Math.floor(Math.random() * questions.length)
   let question = questions[randomNumber]
+
+  console.log(avoidDuplicates)
+
+  if (question.difficulty !== difficulty) {
+    randomQuestion()
+    return
+  }
+
+  if (avoidDuplicates.includes(randomNumber)) {
+    randomQuestion()
+    return
+  }
+
+  avoidDuplicates.push(randomNumber)
+  console.log(avoidDuplicates)
 
   let allAnswers = []
   allAnswers.push(question.correct_answer)
@@ -63,6 +91,8 @@ const randomQuestion = function () {
   for (let i = 0; i < question.incorrect_answers.length; i++) {
     allAnswers.push(question.incorrect_answers[i])
   }
+
+  allAnswers = allAnswers.sort((a, b) => 0.5 - Math.random())
 
   //Create the DOM Elements to display the QUESTION
   let questionContainer = document.querySelector('.question-container')
@@ -87,6 +117,7 @@ const randomQuestion = function () {
 }
 
 function isAnswerCorrect(event) {
+  questionsAsked++
   let clickedButton = event.target.id
   let allButtons = document.getElementsByTagName('button')
   showNextButton()
