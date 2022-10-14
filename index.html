@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Quiz Application</title>
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="header">
+        <h1>Welcome to the Quiz</h1>
+      </div>
+      <br />
+      <div class="question-container">
+        <span id="introduction">You will be asked 5 questions which are randomly generated, multiple
+          choice questions. You will only be able to select 1 answer per question and at the end, you will see your results.</span><br><br>
+          <a href="#" onclick="randomQuestion()" id="start">Start the Quiz</a>
+          <a href="#" onclick="randomQuestion()" id="next" class="hide">Next Question</a>
+        <br />
+      </div>
+      <div class="answer-container">
+        </button>
+      </div>
+    </div>
+  </body>
+  <script src="questions.js"></script>
+  <script src="js.js"></script>
+</html>
