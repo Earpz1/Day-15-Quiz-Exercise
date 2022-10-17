@@ -14,10 +14,14 @@ const hideStartButton = function () {
   introduction.classList.add('hide')
 }
 
+//Function to show the next question button after an answer has been selected
+
 const showNextButton = function () {
   let nextLink = document.getElementById('next')
   nextLink.classList.remove('hide')
 }
+
+//Function to hide the next question button until an answer has been selected
 
 const hideNextButton = function () {
   let nextLink = document.getElementById('next')

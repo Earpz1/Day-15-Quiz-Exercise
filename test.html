@@ -1,0 +1,16 @@
+<script>
+  const array = ['1', '2', '3', '4', '5']
+
+  const minimum = function () {
+    let value = array[0]
+
+    for (let i = 1; i < array.length; i++) {
+      if (array[i] > value) {
+        value = array[i]
+      }
+      console.log(value)
+    }
+  }
+
+  minimum()
+</script>
